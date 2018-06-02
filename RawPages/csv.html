@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CSV Reader</title>
+    <script src="scripts\papaparse.min.js"></script>
+</head>
+<body>
+    <input id="dataFile" type="file" onchange="extractHeader();" />
+    <select id="selectHeader">
+        <option>Select Column</option>
+    </select>
+
+    <script>
+        function extractHeader() {
+            debugger;
+            var dataFile = document.getElementById("dataFile");
+            var op = Papa.parse(dataFile.files[0], {
+                complete: function (results) {
+                    debugger;
+                    console.log("Finished:", results.data);
+                    if (results.errors.length == 0) {
+                        var select = document.getElementById("selectHeader");
+                        results.data[0].forEach((header, index) => {
+                            var el = document.createElement("option");
+                            el.textContent = header;
+                            el.value = index;
+                            select.appendChild(el);
+                        });
+                    } else {
+                        alert("CSV file is not proper.");
+                    }
+                }
+            });
+
+           
+        }
+    </script>
+</body>
+</html>
