@@ -3,6 +3,7 @@
 <head>
     <title>AngelHack 2018</title>
     <meta charset="utf-8">
+    <meta name="google-signin-client_id" content="YOUR_CLIENT_ID.apps.googleusercontent.com">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -14,23 +15,33 @@
 
 </head>
 <body>
+  <div id="my-signin2"></div>
+<script>
+  function onSuccess(googleUser) {
+    console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
+  }
+  function onFailure(error) {
+    console.log(error);
+  }
+  function renderButton() {
+    gapi.signin2.render('my-signin2', {
+      'scope': 'profile email',
+      'width': 240,
+      'height': 50,
+      'longtitle': true,
+      'theme': 'dark',
+      'onsuccess': onSuccess,
+      'onfailure': onFailure
+    });
+  }
+</script>
+
+<script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
 <div class="g-signin2" dataonsuccess="onSignIn" data-theme="dark"></div>
 <script>
 function onSignIn(googleUSer){
   //useful data for your client-side scripts.
   var profile = googleUSer.getBasicprofile();
-  <html lang="en">
-  <head>
-    <meta name="google-signin-scope" content="profile email">
-    <meta name="google-signin-client_id" content="YOUR_CLIENT_ID.apps.googleusercontent.com">
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
-  </head>
-  <body>
-    <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
-    <script>
-      function onSignIn(googleUser) {
-        // Useful data for your client-side scripts:
-        var profile = googleUser.getBasicProfile();
         console.log("ID: " + profile.getId()); // Don't send this directly to your server!
         console.log('Full Name: ' + profile.getName());
         console.log('Given Name: ' + profile.getGivenName());
@@ -43,9 +54,8 @@ function onSignIn(googleUSer){
         console.log("ID Token: " + id_token);
       };
     </script>
-  </body>
-</html>
-}
+
+
     <div class="container">
         <div class="jumbotron text-center">
             <h1>AngelHack 2018</h1>
@@ -94,4 +104,5 @@ function onSignIn(googleUSer){
     </div>
 
 </body>
+
 </html>
