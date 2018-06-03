@@ -1,0 +1,12 @@
+FileName,Class/Regression,Y_Label,LinearRegression,LassoRegression,RidgeRegression,RandomForestRegression,GradientBoostedRegression,SupportVectorRegression,LogisticRegression,RandomForestClassifier,GradientBoostingClassifier,SupportVectorClassifier
+,,,,,,,,,,,,
+bostonhousing.csv,R,medv,80.1644,79.8955,80.1644,84.5916,86.287,63.0435,0,0,0,0
+breast_cancer.csv,C,diagnosis,0,0,0,0,0,0,93.8596,92.9824,91.228,61.4035
+diabetes.csv,C,Outcome,0,0,0,0,0,0,71.4285,72.0779,71.4285,65.5844
+faults.csv,C,class,0,0,0,0,0,0,57.5835,73.2647,63.239,37.5321
+forestfires.csv,R,month,84.4968,84.5915,84.497,87.5119,86.9898,66.2691,0,0,0,0
+IRIS.csv,C,Species,0,0,0,0,0,0,96.6667,90,93.3333,96.6667
+LoanPrediction.csv,C,Loan_Status,0,0,0,0,0,0,75.6097,73.1707,67.4796,67.4796
+UCLAhousingdata.csv,R,MEDV,84.4968,84.5195,84.497,87.5119,86.7227,45.2694,0,0,0,0
+winequality-red.csv,R,quality,91.2054,91.229,91.2298,92.0865,89.9154,90.8451,0,0,0,0
+winequality-white.csv,R,quality,89.684,89.6414,89.6846,91.0491,90.9056,90.5916,0,0,0,0
