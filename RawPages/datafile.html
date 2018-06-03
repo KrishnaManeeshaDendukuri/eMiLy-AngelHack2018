@@ -1,33 +1,49 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-<script type="text/javascript">
-
+<script>
 window.onload = function () {
-	var chart = new CanvasJS.Chart("chartContainer", {
-		title:{
-			text: "output for the best model"
-		},
-		data: [
-		{
-			// Change type to "doughnut", "line", "splineArea", etc.
-			type: "column",
-			dataPoints: [
-				{ label: "ysu",  y: 10  },
-				{ label: "xyz", y: 15  },
-				{ label: "neuralnetworks", y: 25  },
-				{ label: "mgw",  y: 30  },
-				{ label: "dea",  y: 28  }
-			]
-		}
+
+var chart = new CanvasJS.Chart("chartContainer", {
+	animationEnabled: true,
+
+	title:{
+		text:"Efficiency of models"
+	},
+	axisX:{
+		interval: 1
+	},
+	axisY2:{
+		interlacedColor: "rgba(1,77,101,.2)",
+		gridColor: "rgba(1,77,101,.1)",
+		title: "Efficiency"
+	},
+	data: [{
+		type: "bar",
+		name: "Efficiency",
+		axisYType: "secondary",
+		color: "#014D65",
+		dataPoints: [
+			{ y: 80.1644, label: "LinearRegression" },
+			{ y: 79.8955, label: "LassoRegression" },
+			{ y: 80.1644, label: "RidgeRegression" },
+			{ y: 84.5916, label: "RandomForestRegression" },
+			{ y: 89.287, label: "GradientBoostedRegression" },
+			{ y: 63.0435, label: "SupportVectorRegression" },
+			{ y: 0, label: "LogisticRegression" },
+			{ y: 0, label: "RandomForestClassification" },
+			{ y: 0, label: "GradientBoostingClassification" },
+			{ y: 0, label: "SupportVectorClassification" },
 		]
-	});
-	chart.render();
+	}]
+});
+chart.render();
+
 }
 </script>
 </head>
 <body>
 <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 </body>
 </html>
