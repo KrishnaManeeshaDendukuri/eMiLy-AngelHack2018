@@ -76,7 +76,24 @@
     <script>
 
         function result() {
-            window.location.href = "../datafile.html";
+            debugger;
+            var dataFile = document.getElementById("dataFile").files[0];
+            var redirectPage = "../datafile.html";
+            switch (dataFile) {
+                case "bostonhousing.csv":
+                    redirectPage = "../datafile.html";
+                    break;
+                case "forestfires.csv":
+                    redirectPage = "../datafile4.html";
+                    break
+                case "diabetes.csv":
+                    redirectPage = "../datafile3.html";
+                    break
+                case "breast_cancer.csv":
+                    redirectPage = "../datafile2.html";
+                    break;
+            }
+            window.location.href = redirectPage;
         }
 
         function extractHeader() {
