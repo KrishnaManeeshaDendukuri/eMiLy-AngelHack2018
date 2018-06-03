@@ -16,9 +16,11 @@ var chart = new CanvasJS.Chart("chartContainer", {
 	axisY2:{
 		interlacedColor: "rgba(1,77,101,.2)",
 		gridColor: "rgba(1,77,101,.1)",
-		title: "Efficiency"
+		title: "Bostonhousing Efficiency"
 	},
 	data: [{
+
+
 		type: "bar",
 		name: "Efficiency",
 		axisYType: "secondary",
@@ -28,12 +30,12 @@ var chart = new CanvasJS.Chart("chartContainer", {
 			{ y: 79.8955, label: "LassoRegression" },
 			{ y: 80.1644, label: "RidgeRegression" },
 			{ y: 84.5916, label: "RandomForestRegression" },
-			{ y: 89.287, label: "GradientBoostedRegression" },
+			{ y: 89.2871, label: "GradientBoostedRegression" },
 			{ y: 63.0435, label: "SupportVectorRegression" },
-			{ y: 0, label: "LogisticRegression" },
-			{ y: 0, label: "RandomForestClassification" },
-			{ y: 0, label: "GradientBoostingClassification" },
-			{ y: 0, label: "SupportVectorClassification" },
+			{ y: 86.5689, label: "LogisticRegression" },
+			{ y: 1.6956, label: "RandomForestClassification" },
+			{ y: 1.5656, label: "GradientBoostingClassification" },
+			{ y: 1.3556, label: "SupportVectorClassification" },
 		]
 	}]
 });
@@ -46,4 +48,62 @@ chart.render();
 <div id="chartContainer" style="height: 300px; width: 100%;"></div>
 <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 </body>
+
+
+<div  style="margin: -align:center";>
+	<table>
+ <tr>
+  <th>Data file</th>
+  <th>Model Efficiency</th>
+ </tr>
+ <tr>
+  <td>LinearRegression</td>
+	<td>80.1644</td>
+</tr>
+<tr>
+  <td>LassoRegression</td>
+	<td>79.8955</td>
+</tr>
+<tr>
+	<td>RidgeRegression</td>
+	<td>80.1644</td>
+</tr>
+<tr>
+	<td>RandomForestRegression</td>
+	<td>84.5916</td>
+</tr>
+<tr>
+	<td>GradientBoostedRegression</td>
+	<td>89.2871</td>
+</tr>
+<tr>
+	<td>SupportVectorRegression</td>
+	<td>63.0435</td>
+</tr>
+<tr>
+	<td>LogisticRegression</td>
+	<td>86.56898</td>
+</tr>
+<tr>
+	<td>RandomForestClassification</td>
+	<td>1.6956</td>
+</tr>
+<tr>
+	<td>GradientBoostingClassification</td>
+	<td>1.5656</td>
+</tr>
+<tr>
+	<td>SupportVectorClassification</td>
+	<td>1.3556</td>
+</tr>
+
+ </tr>
+
+</table>
+
+
+
+
+</div>
+
 </html>

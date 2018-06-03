@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<script>
+window.onload = function () {
+
+var chart = new CanvasJS.Chart("chartContainer", {
+	animationEnabled: true,
+
+	title:{
+		text:"Efficiency of models"
+	},
+	axisX:{
+		interval: 1
+	},
+	axisY2:{
+		interlacedColor: "rgba(1,77,101,.2)",
+		gridColor: "rgba(1,77,101,.1)",
+		title: "bread_cancer Efficiency"
+	},
+	data: [{
+
+
+		type: "bar",
+		name: "Efficiency",
+		axisYType: "secondary",
+		color: "#014D65",
+		dataPoints: [
+			{ y: 1.9589, label: "LinearRegression" },
+			{ y: 2.5689, label: "LassoRegression" },
+			{ y: 3.4857, label: "RidgeRegression" },
+			{ y:1.2649, label: "RandomForestRegression" },
+			{ y: 3.0741, label: "GradientBoostedRegression" },
+			{ y: 4.2685, label: "SupportVectorRegression" },
+			{ y: 2.4753, label: "LogisticRegression" },
+			{ y: 93.8596, label: "RandomForestClassification" },
+			{ y: 91.2285, label: "GradientBoostingClassification" },
+			{ y: 61.4035, label: "SupportVectorClassification" },
+		]
+	}]
+});
+chart.render();
+
+}
+</script>
+</head>
+<body>
+<div id="chartContainer" style="height: 300px; width: 100%;"></div>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+</body>
+</html>
