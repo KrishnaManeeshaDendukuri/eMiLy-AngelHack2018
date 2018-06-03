@@ -1,11 +1,12 @@
 ﻿<!DOCTYPE html>
 <html>
-<title>W3.CSS Template</title>
+<title>eMiLy - AngelHack 2018</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="scroll.css" type="text/css">
+<script src="scripts\papaparse.min.js"></script>
 <style>
     body, h1 {
         font-family: "Raleway", sans-serif
@@ -63,12 +64,43 @@
             <h1 class="w3-jumbo w3-animate-top">eMiLy</h1>
             <hr class="w3-border-grey" style="margin:auto;width:40%">
             <p class="w3-large w3-center">Need a efficient model for your Ml project</p>
-            <form action="/action_page.php">
-                <input type="file" name="pic" accept="image/*">
-                <input type="submit">
-            </form>
+
+            <input type="file" id="dataFile" onchange="extractHeader();">
+            <select id="selectHeader">
+                <option>Select Column</option>
+            </select>
+            <button onclick="result();">Submit</button>
+
         </div>
     </div>
+    <script>
+
+        function result() {
+            window.location.href = "../datafile.html";
+        }
+
+        function extractHeader() {
+            debugger;
+            var dataFile = document.getElementById("dataFile");
+            var op = Papa.parse(dataFile.files[0], {
+                complete: function (results) {
+                    debugger;
+                    console.log("Finished:", results.data);
+                    if (results.errors.length == 0) {
+                        var select = document.getElementById("selectHeader");
+                        results.data[0].forEach((header, index) => {
+                            var el = document.createElement("option");
+                            el.textContent = header;
+                            el.value = index;
+                            select.appendChild(el);
+                        });
+                    } else {
+                        alert("CSV file is not proper.");
+                    }
+                }
+            });
+        }
+    </script>
     <footer>
         <div class="scroll-downs">
             <div class="mousey">
